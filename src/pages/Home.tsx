@@ -39,11 +39,6 @@ export const Home = () => {
       <section className={styles.section}>
         <div className={styles.sectionIntro}>
           <h2>{locale === "zh" ? "常用产品" : "Popular products"}</h2>
-          <p>
-            {locale === "zh"
-              ? "快速比较要点。来电确认是否适合您的项目。"
-              : "Compare the essentials. Call us to confirm the right fit."}
-          </p>
         </div>
         <div className={styles.productGrid}>
           {products.slice(0, 3).map((product) => (
