@@ -38,7 +38,7 @@ Production: [citamat.jacobwisniewski.dev](https://citamat.jacobwisniewski.dev)
 
 ## Content model
 
-Products, brands, projects and translations are typed static data in `src/data/site.ts`.
+Products, supporting brand details and translations are typed static data in `src/data/site.ts`.
 Images are stored locally in `public/images`. No runtime CMS or server-side rendering is used.
 
 The enquiry form prepares a message in the visitor's email application so the visitor reviews
@@ -49,9 +49,8 @@ and sends it directly to `info@citamat.com`.
 - English and Chinese routes with language switching
 - Responsive navigation
 - Product catalogue and URL-backed category filters
-- Product and brand detail pages
-- Residential and commercial solution pages
-- Project case studies
+- Product detail pages
+- Residential and commercial pages
 - Validated enquiry form
 - Sitemap, robots rules, cache and security headers
 

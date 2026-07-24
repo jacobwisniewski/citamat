@@ -8,7 +8,7 @@ import {
   toAbsoluteUrl,
   type SeoEntry,
 } from "../src/seo/config";
-import { brands, products, projects, t } from "../src/data/site";
+import { products, t } from "../src/data/site";
 
 const distDirectory = join(process.cwd(), "dist");
 const indexPath = join(distDirectory, "index.html");
@@ -124,8 +124,6 @@ const createLlmsText = (locale: "en" | "zh"): string => {
       : "CITAMAT provides product information and selection guidance for waterproofing, composite timber and decorative finishes in Australian residential and commercial projects.",
     "",
     `- [${locale === "zh" ? "产品" : "Products"}](${siteUrl}${prefix}/products)`,
-    `- [${locale === "zh" ? "品牌" : "Brands"}](${siteUrl}${prefix}/brands)`,
-    `- [${locale === "zh" ? "项目案例" : "Projects"}](${siteUrl}${prefix}/projects)`,
     `- [${locale === "zh" ? "关于我们" : "About"}](${siteUrl}${prefix}/about)`,
     `- [${locale === "zh" ? "联系我们" : "Contact"}](${siteUrl}${prefix}/contact)`,
     "",
@@ -134,20 +132,6 @@ const createLlmsText = (locale: "en" | "zh"): string => {
     ...products.map(
       (product) =>
         `- [${product.name}](${siteUrl}${prefix}/products/${product.slug}): ${t(product.summary, locale)}`,
-    ),
-    "",
-    `## ${locale === "zh" ? "品牌" : "Brands"}`,
-    "",
-    ...brands.map(
-      (brand) =>
-        `- [${brand.name}](${siteUrl}${prefix}/brands/${brand.slug}): ${t(brand.description, locale)}`,
-    ),
-    "",
-    `## ${locale === "zh" ? "项目案例" : "Projects"}`,
-    "",
-    ...projects.map(
-      (project) =>
-        `- [${t(project.name, locale)}](${siteUrl}${prefix}/cases/${project.slug}): ${t(project.type, locale)}`,
     ),
     "",
     locale === "zh"

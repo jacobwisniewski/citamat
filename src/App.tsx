@@ -1,8 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
-import { BrandDetail, Brands } from "./pages/Brands";
 import { Catalog } from "./pages/Catalog";
-import { CaseStudy, ContentPage } from "./pages/ContentPages";
+import { ContentPage } from "./pages/ContentPages";
 import { Contact } from "./pages/Contact";
 import { Home } from "./pages/Home";
 import { NotFound, ProductDetail } from "./pages/ProductDetail";
@@ -13,15 +12,9 @@ const RouteSet = ({ prefix = "" }: { prefix?: string }) => (
     <Route path={`${prefix}/`} element={<Home />} />
     <Route path={`${prefix}/products`} element={<Catalog />} />
     <Route path={`${prefix}/products/:slug`} element={<ProductDetail />} />
-    <Route path={`${prefix}/products/brand/:slug`} element={<BrandDetail />} />
-    <Route path={`${prefix}/brands`} element={<Brands />} />
-    <Route path={`${prefix}/brands/:slug`} element={<BrandDetail />} />
     <Route path={`${prefix}/about`} element={<ContentPage kind="about" />} />
-    <Route path={`${prefix}/solutions`} element={<ContentPage kind="solutions" />} />
     <Route path={`${prefix}/residential`} element={<ContentPage kind="residential" />} />
     <Route path={`${prefix}/commercial`} element={<ContentPage kind="commercial" />} />
-    <Route path={`${prefix}/projects`} element={<ContentPage kind="projects" />} />
-    <Route path={`${prefix}/cases/:slug`} element={<CaseStudy />} />
     <Route path={`${prefix}/contact`} element={<Contact />} />
     <Route path={`${prefix}/paint`} element={<Catalog />} />
     <Route path={`${prefix}/waterproof-paint`} element={<Catalog />} />
@@ -29,8 +22,6 @@ const RouteSet = ({ prefix = "" }: { prefix?: string }) => (
     <Route path={`${prefix}/composite-wood`} element={<Catalog />} />
     <Route path={`${prefix}/doors`} element={<Catalog />} />
     <Route path={`${prefix}/windows`} element={<Catalog />} />
-    <Route path={`${prefix}/rainbark`} element={<BrandDetail fixedSlug="rainbark" />} />
-    <Route path={`${prefix}/rainbark/info/:slug`} element={<BrandDetail fixedSlug="rainbark" />} />
   </>
 );
 

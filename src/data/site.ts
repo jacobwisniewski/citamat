@@ -28,9 +28,6 @@ export const copy = {
   nav: {
     home: { en: "Home", zh: "首页" },
     products: { en: "Products", zh: "产品" },
-    solutions: { en: "Solutions", zh: "解决方案" },
-    brands: { en: "Brands", zh: "品牌" },
-    projects: { en: "Projects", zh: "项目案例" },
     about: { en: "About", zh: "关于我们" },
     contact: { en: "Contact", zh: "联系我们" },
   },
@@ -210,27 +207,6 @@ export const categories = [
       en: "Texture, tone and finish systems for expressive residential and commercial interiors.",
       zh: "适用于住宅及商业空间的肌理、色彩与饰面系统。",
     },
-  },
-];
-
-export const projects = [
-  {
-    slug: "brisbane-stadium",
-    name: { en: "Brisbane Stadium", zh: "布里斯班体育场" },
-    type: { en: "Sport & public", zh: "体育与公共空间" },
-    image: "/images/project-1.avif",
-  },
-  {
-    slug: "melbourne-center",
-    name: { en: "Melbourne Centre", zh: "墨尔本中心" },
-    type: { en: "Commercial interior", zh: "商业室内" },
-    image: "/images/project-2.avif",
-  },
-  {
-    slug: "sydney-apartment",
-    name: { en: "Sydney Apartments", zh: "悉尼公寓" },
-    type: { en: "Multi-residential", zh: "多户住宅" },
-    image: "/images/project-3.avif",
   },
 ];
 

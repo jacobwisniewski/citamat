@@ -17,9 +17,6 @@ export const Layout = ({ children }: LayoutProps) => {
   const items = [
     ["/", copy.nav.home],
     ["/products", copy.nav.products],
-    ["/solutions", copy.nav.solutions],
-    ["/brands", copy.nav.brands],
-    ["/projects", copy.nav.projects],
     ["/about", copy.nav.about],
   ] as const;
 
@@ -90,7 +87,7 @@ export const Layout = ({ children }: LayoutProps) => {
         <div>
           <span>{locale === "zh" ? "浏览" : "Explore"}</span>
           <Link to={withLocale("/products", locale)}>{t(copy.nav.products, locale)}</Link>
-          <Link to={withLocale("/brands", locale)}>{t(copy.nav.brands, locale)}</Link>
+          <Link to={withLocale("/about", locale)}>{t(copy.nav.about, locale)}</Link>
           <Link to={withLocale("/contact", locale)}>{t(copy.nav.contact, locale)}</Link>
         </div>
         <small>© {new Date().getFullYear()} CITAMAT Australia</small>

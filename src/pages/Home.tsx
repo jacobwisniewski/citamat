@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { brands, categories, copy, products, projects, t } from "../data/site";
+import { brands, categories, copy, products, t } from "../data/site";
 import { useLocale, withLocale } from "../hooks/useLocale";
 import styles from "./Page.module.scss";
 
@@ -88,34 +88,6 @@ export const Home = () => {
         </div>
       </section>
 
-      <section className={styles.darkSection} data-theme="dark">
-        <div className={styles.sectionIntro}>
-          <h2>
-            {locale === "zh"
-              ? "三个专注领域，一个项目伙伴。"
-              : "Three focused disciplines. One project partner."}
-          </h2>
-          <p>
-            {locale === "zh"
-              ? "精简的品牌组合让技术支持更深入，也让决策更简单。"
-              : "A focused portfolio means deeper product knowledge and simpler decisions."}
-          </p>
-        </div>
-        <div className={styles.brandGrid}>
-          {brands.map((brand) => (
-            <Link
-              className={styles.brandCard}
-              key={brand.slug}
-              to={withLocale(`/brands/${brand.slug}`, locale)}
-            >
-              <img src={brand.logo} alt={brand.name} />
-              <h3>{brand.name}</h3>
-              <p>{t(brand.description, locale)}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
       <section className={styles.section}>
         <div className={styles.sectionIntro}>
           <h2>{locale === "zh" ? "常用项目系统" : "Frequently specified systems"}</h2>
@@ -143,32 +115,6 @@ export const Home = () => {
                 <small>{brands.find((brand) => brand.slug === product.brand)?.name}</small>
                 <h3>{product.name}</h3>
                 <p>{t(product.summary, locale)}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.section}>
-        <div className={styles.sectionIntro}>
-          <h2>{locale === "zh" ? "材料在真实空间中的表现" : "Materials in real spaces"}</h2>
-          <p>
-            {locale === "zh"
-              ? "从公共场馆到多户住宅，查看不同应用场景。"
-              : "From public venues to multi-residential projects, explore the application context."}
-          </p>
-        </div>
-        <div className={styles.projectGrid}>
-          {projects.map((project) => (
-            <Link
-              className={styles.projectCard}
-              key={project.slug}
-              to={withLocale(`/cases/${project.slug}`, locale)}
-            >
-              <img src={project.image} alt="" />
-              <div>
-                <small>{t(project.type, locale)}</small>
-                <h3>{t(project.name, locale)}</h3>
               </div>
             </Link>
           ))}

@@ -1,9 +1,9 @@
-import { brands, products, projects, t, type Locale } from "../data/site";
+import { brands, products, t, type Locale } from "../data/site";
 
 export const siteUrl = "https://citamat.jacobwisniewski.dev";
 export const socialImagePath = "/brand/citamat-og.jpg";
 
-type SeoKind = "about" | "brand" | "case" | "collection" | "contact" | "home" | "page" | "product";
+type SeoKind = "about" | "collection" | "contact" | "home" | "page" | "product";
 
 export type Breadcrumb = {
   name: string;
@@ -65,32 +65,6 @@ const localizedPages: LocalizedPage[] = [
     },
   },
   {
-    path: "/brands",
-    kind: "collection",
-    en: {
-      title: "Our Building Material Brands | CITAMAT",
-      description:
-        "Discover Oriental Yuhong waterproofing, Conch composite timber and rainbARK decorative finishes.",
-    },
-    zh: {
-      title: "建筑材料品牌 | CITAMAT",
-      description: "了解东方雨虹防水、海螺塑木与 rainbARK 装饰饰面品牌。",
-    },
-  },
-  {
-    path: "/solutions",
-    kind: "collection",
-    en: {
-      title: "Building Material Solutions | CITAMAT",
-      description:
-        "Find coordinated material solutions for waterproofing, outdoor surfaces and expressive interior finishes.",
-    },
-    zh: {
-      title: "建筑材料解决方案 | CITAMAT",
-      description: "查找适用于防水、户外表面与特色室内饰面的协调材料方案。",
-    },
-  },
-  {
     path: "/residential",
     kind: "page",
     en: {
@@ -114,19 +88,6 @@ const localizedPages: LocalizedPage[] = [
     zh: {
       title: "商业建筑解决方案 | CITAMAT",
       description: "探索适用于商业室内、立面、屋面和公共项目的耐用建筑材料系统。",
-    },
-  },
-  {
-    path: "/projects",
-    kind: "collection",
-    en: {
-      title: "Building Project Case Studies | CITAMAT",
-      description:
-        "View selected Australian residential, commercial and public project applications.",
-    },
-    zh: {
-      title: "建筑项目案例 | CITAMAT",
-      description: "查看精选澳大利亚住宅、商业与公共项目应用案例。",
     },
   },
   {
@@ -218,71 +179,7 @@ const createProductEntries = (): SeoEntry[] =>
     }),
   );
 
-const createBrandEntries = (): SeoEntry[] =>
-  brands.flatMap((brand) =>
-    (["en", "zh"] as const).map((locale) => {
-      const path = localizedPath(`/brands/${brand.slug}`, locale);
-      return {
-        alternatePath: localizedPath(`/brands/${brand.slug}`, locale === "en" ? "zh" : "en"),
-        breadcrumbs: [
-          rootBreadcrumb(locale),
-          {
-            name: locale === "zh" ? "品牌" : "Brands",
-            path: localizedPath("/brands", locale),
-          },
-          { name: brand.name, path },
-        ],
-        description: t(brand.description, locale),
-        entitySlug: brand.slug,
-        image: brand.logo,
-        imageAlt: `${brand.name} ${locale === "zh" ? "品牌" : "brand"}`,
-        indexable: true,
-        kind: "brand" as const,
-        locale,
-        path,
-        title: `${brand.name} | CITAMAT`,
-      };
-    }),
-  );
-
-const createCaseEntries = (): SeoEntry[] =>
-  projects.flatMap((project) =>
-    (["en", "zh"] as const).map((locale) => {
-      const path = localizedPath(`/cases/${project.slug}`, locale);
-      const name = t(project.name, locale);
-      const type = t(project.type, locale);
-      return {
-        alternatePath: localizedPath(`/cases/${project.slug}`, locale === "en" ? "zh" : "en"),
-        breadcrumbs: [
-          rootBreadcrumb(locale),
-          {
-            name: locale === "zh" ? "项目案例" : "Projects",
-            path: localizedPath("/projects", locale),
-          },
-          { name, path },
-        ],
-        description:
-          locale === "zh"
-            ? `${name}的${type}建筑材料应用案例。`
-            : `${name} building material application case study for ${type.toLowerCase()}.`,
-        entitySlug: project.slug,
-        image: project.image,
-        imageAlt: `${name} ${locale === "zh" ? "项目案例" : "project"}`,
-        indexable: true,
-        kind: "case" as const,
-        locale,
-        path,
-        title: `${name} | CITAMAT ${locale === "zh" ? "项目案例" : "Case Study"}`,
-      };
-    }),
-  );
-
-export const seoRoutes: SeoEntry[] = [
-  ...createStaticEntries(),
-  ...createProductEntries(),
-  ...createBrandEntries(),
-  ...createCaseEntries(),
-];
+export const seoRoutes: SeoEntry[] = [...createStaticEntries(), ...createProductEntries()];
 
 const normalizePath = (pathname: string): string => {
   const path = pathname.replace(/\/{2,}/g, "/").replace(/\/+$/, "");

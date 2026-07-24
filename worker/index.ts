@@ -13,20 +13,38 @@ const redirects = new Map<string, string>([
   ["/composite-wood", "/products"],
   ["/doors", "/products"],
   ["/windows", "/products"],
-  ["/rainbark", "/brands/rainbark"],
-  ["/products/brand/oriental-yuhong", "/brands/oriental-yuhong"],
-  ["/products/brand/conch", "/brands/conch"],
-  ["/products/brand/rainbark", "/brands/rainbark"],
+  ["/solutions", "/products"],
+  ["/brands", "/products"],
+  ["/brands/oriental-yuhong", "/products"],
+  ["/brands/conch", "/products"],
+  ["/brands/rainbark", "/products"],
+  ["/products/brand/oriental-yuhong", "/products"],
+  ["/products/brand/conch", "/products"],
+  ["/products/brand/rainbark", "/products"],
+  ["/projects", "/"],
+  ["/cases/brisbane-stadium", "/"],
+  ["/cases/melbourne-center", "/"],
+  ["/cases/sydney-apartment", "/"],
+  ["/rainbark", "/products"],
   ["/zh/paint", "/zh/products"],
   ["/zh/waterproof-paint", "/zh/products"],
   ["/zh/decorative-paint", "/zh/products"],
   ["/zh/composite-wood", "/zh/products"],
   ["/zh/doors", "/zh/products"],
   ["/zh/windows", "/zh/products"],
-  ["/zh/rainbark", "/zh/brands/rainbark"],
-  ["/zh/products/brand/oriental-yuhong", "/zh/brands/oriental-yuhong"],
-  ["/zh/products/brand/conch", "/zh/brands/conch"],
-  ["/zh/products/brand/rainbark", "/zh/brands/rainbark"],
+  ["/zh/solutions", "/zh/products"],
+  ["/zh/brands", "/zh/products"],
+  ["/zh/brands/oriental-yuhong", "/zh/products"],
+  ["/zh/brands/conch", "/zh/products"],
+  ["/zh/brands/rainbark", "/zh/products"],
+  ["/zh/products/brand/oriental-yuhong", "/zh/products"],
+  ["/zh/products/brand/conch", "/zh/products"],
+  ["/zh/products/brand/rainbark", "/zh/products"],
+  ["/zh/projects", "/zh"],
+  ["/zh/cases/brisbane-stadium", "/zh"],
+  ["/zh/cases/melbourne-center", "/zh"],
+  ["/zh/cases/sydney-apartment", "/zh"],
+  ["/zh/rainbark", "/zh/products"],
 ]);
 
 const normalizePath = (pathname: string): string => {
@@ -52,7 +70,7 @@ export default {
 
     const rainbarkInfo = pathname.match(/^\/(zh\/)?rainbark\/info\/[^/]+$/);
     if (rainbarkInfo) {
-      url.pathname = rainbarkInfo[1] ? "/zh/brands/rainbark" : "/brands/rainbark";
+      url.pathname = rainbarkInfo[1] ? "/zh/products" : "/products";
       return Response.redirect(url.toString(), 308);
     }
 

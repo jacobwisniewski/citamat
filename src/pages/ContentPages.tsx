@@ -1,11 +1,10 @@
-import { Link, useParams } from "react-router-dom";
-import { copy, projects, t } from "../data/site";
+import { Link } from "react-router-dom";
+import { copy, t } from "../data/site";
 import { useLocale, withLocale } from "../hooks/useLocale";
-import { NotFound } from "./ProductDetail";
 import styles from "./Page.module.scss";
 
 type ContentPageProps = {
-  kind: "about" | "solutions" | "residential" | "commercial" | "projects";
+  kind: "about" | "residential" | "commercial";
 };
 
 const content = {
@@ -23,22 +22,6 @@ const content = {
     body: {
       en: "Building products are rarely chosen in isolation. Substrate, exposure, installation skill, programme and finish all matter. Our role is to ask the useful questions early, make the shortlist smaller and connect project teams with the right technical information.",
       zh: "建筑产品很少能脱离项目条件单独选择。基面、暴露环境、施工能力、工期和最终效果都很重要。我们的工作是在早期提出有用的问题，缩小候选范围，并为项目团队连接适合的技术信息。",
-    },
-  },
-  solutions: {
-    eyebrow: { en: "Project solutions", zh: "项目解决方案" },
-    title: {
-      en: "One brief. A coordinated material direction.",
-      zh: "一份需求，形成协调的材料方向。",
-    },
-    intro: {
-      en: "Bring the project context together before comparing individual products.",
-      zh: "先整合项目条件，再比较单个产品。",
-    },
-    heading: { en: "From context to shortlist", zh: "从项目条件到材料清单" },
-    body: {
-      en: "Share the building type, application, substrate, exposure, programme and desired finish. We use that context to identify a practical shortlist across waterproofing, composite surfaces and decorative finishes.",
-      zh: "提供建筑类型、应用部位、基面、暴露环境、工期和目标效果。我们据此从防水、塑木与装饰饰面中形成实用的候选清单。",
     },
   },
   residential: {
@@ -67,19 +50,6 @@ const content = {
       zh: "商业项目团队需要清晰的性能信息与可预期的施工过程。我们协助将材料方向与暴露环境、人流强度、工序和效果预期对齐。",
     },
   },
-  projects: {
-    eyebrow: { en: "Project cases", zh: "项目案例" },
-    title: { en: "See the application, not just the product.", zh: "不只看产品，也看应用场景。" },
-    intro: {
-      en: "A selection of public, commercial and residential contexts.",
-      zh: "精选公共、商业与住宅应用场景。",
-    },
-    heading: { en: "Selected projects", zh: "精选项目" },
-    body: {
-      en: "Explore how material requirements change across building types and environments.",
-      zh: "了解材料需求如何随建筑类型与环境变化。",
-    },
-  },
 } as const;
 
 export const ContentPage = ({ kind }: ContentPageProps) => {
@@ -95,7 +65,7 @@ export const ContentPage = ({ kind }: ContentPageProps) => {
       <section className={styles.story}>
         <h2>{t(page.heading, locale)}</h2>
         <p>{t(page.body, locale)}</p>
-        {kind !== "about" && kind !== "projects" && (
+        {kind !== "about" && (
           <div className={styles.actions}>
             <Link className={styles.primary} to={withLocale("/contact", locale)}>
               {t(copy.common.enquire, locale)}
@@ -115,61 +85,6 @@ export const ContentPage = ({ kind }: ContentPageProps) => {
           />
         </figure>
       )}
-      {kind === "projects" && (
-        <section className={styles.section}>
-          <div className={styles.projectGrid}>
-            {projects.map((project) => (
-              <Link
-                className={styles.projectCard}
-                key={project.slug}
-                to={withLocale(`/cases/${project.slug}`, locale)}
-              >
-                <img src={project.image} alt="" />
-                <div>
-                  <small>{t(project.type, locale)}</small>
-                  <h3>{t(project.name, locale)}</h3>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-    </div>
-  );
-};
-
-export const CaseStudy = () => {
-  const locale = useLocale();
-  const { slug } = useParams();
-  const project = projects.find((item) => item.slug === slug);
-  if (!project) {
-    return <NotFound />;
-  }
-  return (
-    <div className={styles.page}>
-      <header className={styles.compactHero} data-theme="dark">
-        <span className={styles.eyebrow}>{t(project.type, locale)}</span>
-        <h1>{t(project.name, locale)}</h1>
-        <p>
-          {locale === "zh"
-            ? "案例概览：项目环境、材料方向与关键选择因素。"
-            : "A project overview covering context, material direction and the factors shaping selection."}
-        </p>
-      </header>
-      <div className={styles.detailVisual}>
-        <img src={project.image} alt="" />
-      </div>
-      <section className={styles.story}>
-        <h2>{locale === "zh" ? "项目背景" : "Project context"}</h2>
-        <p>
-          {locale === "zh"
-            ? "不同项目对耐久性、施工顺序、维护与设计效果有不同要求。CITAMAT 通过早期确认应用条件，帮助项目团队将关注点放在适合的材料系统上。"
-            : "Every project balances durability, sequencing, maintenance and design intent differently. CITAMAT helps project teams focus on suitable material systems by establishing the application conditions early."}
-        </p>
-        <Link className={styles.primary} to={withLocale("/contact", locale)}>
-          {t(copy.common.enquire, locale)}
-        </Link>
-      </section>
     </div>
   );
 };
