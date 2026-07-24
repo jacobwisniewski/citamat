@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { copy, t } from "../data/site";
+import { contact, copy, t } from "../data/site";
 import { useLocale, withLocale } from "../hooks/useLocale";
 import styles from "./Layout.module.scss";
 
@@ -52,13 +52,9 @@ export const Layout = ({ children }: LayoutProps) => {
           <Link className={styles.language} to={alternate} onClick={() => setOpen(false)}>
             {locale === "zh" ? "EN" : "中文"}
           </Link>
-          <Link
-            className={styles.navCta}
-            to={withLocale("/contact", locale)}
-            onClick={() => setOpen(false)}
-          >
-            {t(copy.common.enquire, locale)}
-          </Link>
+          <a className={styles.navCta} href={contact.phoneHref} onClick={() => setOpen(false)}>
+            {t(copy.common.call, locale)}
+          </a>
         </nav>
       </header>
       <main>{children}</main>
@@ -75,7 +71,8 @@ export const Layout = ({ children }: LayoutProps) => {
         </div>
         <div>
           <span>{locale === "zh" ? "联系" : "Contact"}</span>
-          <a href="mailto:info@citamat.com">info@citamat.com</a>
+          <a href={contact.phoneHref}>{contact.phoneInternational}</a>
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
           <a
             href="https://www.google.com/maps/search/7+Alexander+Drive,+Burwood+3125,+Victoria"
             target="_blank"

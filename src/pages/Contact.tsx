@@ -1,5 +1,6 @@
 import { useMemo, useState, type FormEvent } from "react";
 import { useSearchParams } from "react-router-dom";
+import { contact } from "../data/site";
 import { useLocale } from "../hooks/useLocale";
 import styles from "./Page.module.scss";
 
@@ -34,7 +35,7 @@ export const Contact = () => {
       "",
       form.message,
     ].join("\n");
-    window.location.href = `mailto:info@citamat.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
   };
 
@@ -44,23 +45,29 @@ export const Contact = () => {
   return (
     <div className={styles.page}>
       <header className={styles.compactHero} data-theme="dark">
-        <span className={styles.eyebrow}>{locale === "zh" ? "项目咨询" : "Project enquiry"}</span>
-        <h1>{locale === "zh" ? "从项目条件开始。" : "Start with the project conditions."}</h1>
+        <span className={styles.eyebrow}>{locale === "zh" ? "联系我们" : "Contact CITAMAT"}</span>
+        <h1>{locale === "zh" ? "来电，我们帮您选择。" : "Call us. We’ll help you choose."}</h1>
         <p>
           {locale === "zh"
-            ? "请提供应用部位、基面、工期与目标效果。我们将据此给出更有用的材料方向。"
-            : "Share the application, substrate, programme and desired outcome. That context lets us give more useful direction."}
+            ? `致电 ${contact.phoneDisplay}，与墨尔本团队讨论您的项目。`
+            : `Call ${contact.phoneDisplay} to discuss your project with our Melbourne team.`}
         </p>
+        <div className={styles.actions}>
+          <a className={styles.primary} href={contact.phoneHref}>
+            {locale === "zh" ? `立即致电 ${contact.phoneDisplay}` : `Call ${contact.phoneDisplay}`}
+          </a>
+        </div>
       </header>
       <section className={styles.contactGrid}>
         <aside className={styles.contactAside}>
-          <h2>{locale === "zh" ? "发送项目需求" : "Send the brief"}</h2>
+          <h2>{locale === "zh" ? "更喜欢邮件？" : "Prefer email?"}</h2>
           <p>
             {locale === "zh"
-              ? "表单会打开您的邮件应用，由您确认后发送。"
-              : "The form opens your email app so you can review and send the enquiry."}
+              ? "填写项目要点，我们会在您的邮件应用中准备好内容。"
+              : "Add the key details and we’ll prepare the message in your email app."}
           </p>
-          <a href="mailto:info@citamat.com">info@citamat.com</a>
+          <a href={contact.phoneHref}>{contact.phoneInternational}</a>
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
           <a
             href="https://www.google.com/maps/search/7+Alexander+Drive,+Burwood+3125,+Victoria"
             target="_blank"
@@ -128,7 +135,7 @@ export const Contact = () => {
             />
           </label>
           <button className={`${styles.primary} ${styles.wide}`} type="submit">
-            {locale === "zh" ? "在邮件中确认并发送" : "Review and send in email"}
+            {locale === "zh" ? "准备邮件" : "Prepare email"}
           </button>
           {sent && (
             <p className={styles.notice} role="status">

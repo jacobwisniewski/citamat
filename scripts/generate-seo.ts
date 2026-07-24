@@ -8,7 +8,7 @@ import {
   toAbsoluteUrl,
   type SeoEntry,
 } from "../src/seo/config";
-import { products, t } from "../src/data/site";
+import { contact, products, t } from "../src/data/site";
 
 const distDirectory = join(process.cwd(), "dist");
 const indexPath = join(distDirectory, "index.html");
@@ -135,8 +135,8 @@ const createLlmsText = (locale: "en" | "zh"): string => {
     ),
     "",
     locale === "zh"
-      ? "联系：info@citamat.com，7 Alexander Drive, Burwood VIC 3125, Australia"
-      : "Contact: info@citamat.com, 7 Alexander Drive, Burwood VIC 3125, Australia",
+      ? `联系：${contact.phoneInternational}，${contact.email}，7 Alexander Drive, Burwood VIC 3125, Australia`
+      : `Contact: ${contact.phoneInternational}, ${contact.email}, 7 Alexander Drive, Burwood VIC 3125, Australia`,
     "",
   ];
   return lines.join("\n");

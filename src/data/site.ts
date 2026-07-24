@@ -24,6 +24,13 @@ export type Brand = {
   logo: string;
 };
 
+export const contact = {
+  email: "info@citamat.com",
+  phoneDisplay: "(03) 9888 0000",
+  phoneHref: "tel:+61398880000",
+  phoneInternational: "+61 3 9888 0000",
+} as const;
+
 export const copy = {
   nav: {
     home: { en: "Home", zh: "首页" },
@@ -32,8 +39,9 @@ export const copy = {
     contact: { en: "Contact", zh: "联系我们" },
   },
   common: {
-    enquire: { en: "Get a project recommendation", zh: "获取项目选材建议" },
-    explore: { en: "Explore products", zh: "查看产品" },
+    call: { en: `Call ${contact.phoneDisplay}`, zh: `致电 ${contact.phoneDisplay}` },
+    enquire: { en: "Send project details", zh: "发送项目详情" },
+    explore: { en: "Browse products", zh: "浏览产品" },
     view: { en: "View details", zh: "查看详情" },
     all: { en: "All products", zh: "全部产品" },
   },

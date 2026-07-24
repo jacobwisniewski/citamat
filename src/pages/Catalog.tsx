@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { brands, categories, copy, products, t } from "../data/site";
+import { brands, categories, contact, copy, products, t } from "../data/site";
 import { useLocale, withLocale } from "../hooks/useLocale";
 import styles from "./Page.module.scss";
 
@@ -33,14 +33,17 @@ export const Catalog = () => {
     <div className={styles.page}>
       <header className={styles.compactHero} data-theme="dark">
         <span className={styles.eyebrow}>{t(copy.nav.products, locale)}</span>
-        <h1>
-          {locale === "zh" ? "按应用找到合适系统。" : "Find the right system by application."}
-        </h1>
+        <h1>{locale === "zh" ? "按应用选择产品。" : "Choose products by application."}</h1>
         <p>
           {locale === "zh"
-            ? "筛选产品类别，比较主要特性；如需确认适配性，请发送项目需求。"
-            : "Filter the range, compare core characteristics, then send us the project context to confirm fit."}
+            ? "筛选并比较要点。如需确认是否适合，直接来电。"
+            : "Filter the range and compare the essentials. Call us to confirm fit."}
         </p>
+        <div className={styles.actions}>
+          <a className={styles.primary} href={contact.phoneHref}>
+            {t(copy.common.call, locale)}
+          </a>
+        </div>
       </header>
       <section className={styles.section}>
         <div

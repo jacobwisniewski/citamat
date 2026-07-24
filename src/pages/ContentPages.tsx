@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { copy, t } from "../data/site";
+import { contact, copy, t } from "../data/site";
 import { useLocale, withLocale } from "../hooks/useLocale";
 import styles from "./Page.module.scss";
 
@@ -11,43 +11,43 @@ const content = {
   about: {
     eyebrow: { en: "About CITAMAT", zh: "关于 CITAMAT" },
     title: {
-      en: "Thirty years close to the way Australia builds.",
-      zh: "三十年，贴近澳大利亚的建造方式。",
+      en: "Practical product help. Local support.",
+      zh: "实用产品建议，本地团队支持。",
     },
     intro: {
-      en: "CITAMAT connects Australian projects with focused building material systems and practical local support.",
-      zh: "CITAMAT 将专注的建筑材料系统与本地务实支持带给澳大利亚项目。",
+      en: "We help Australian project teams find the right building products sooner.",
+      zh: "我们帮助澳大利亚项目团队更快找到合适的建筑产品。",
     },
-    heading: { en: "Clarity at the point of choice", zh: "在选材节点提供清晰方向" },
+    heading: { en: "Clear choices, earlier", zh: "更早明确选择" },
     body: {
-      en: "Building products are rarely chosen in isolation. Substrate, exposure, installation skill, programme and finish all matter. Our role is to ask the useful questions early, make the shortlist smaller and connect project teams with the right technical information.",
-      zh: "建筑产品很少能脱离项目条件单独选择。基面、暴露环境、施工能力、工期和最终效果都很重要。我们的工作是在早期提出有用的问题，缩小候选范围，并为项目团队连接适合的技术信息。",
+      en: "Tell us the application, substrate and finish. We’ll help narrow the range and point you to the useful product information.",
+      zh: "告诉我们应用、基面与饰面要求，我们将缩小产品范围并提供实用信息。",
     },
   },
   residential: {
     eyebrow: { en: "Residential", zh: "住宅方案" },
-    title: { en: "Materials selected around everyday living.", zh: "围绕日常生活选择材料。" },
+    title: { en: "Products for homes that work hard.", zh: "适合日常使用的住宅产品。" },
     intro: {
-      en: "Practical systems for wet areas, balconies, outdoor living and expressive interiors.",
-      zh: "适用于湿区、阳台、户外生活与个性化室内空间的实用系统。",
+      en: "Options for wet areas, balconies, outdoor spaces and interiors.",
+      zh: "适用于湿区、阳台、户外空间与室内的产品。",
     },
-    heading: { en: "Designed for the whole-life outcome", zh: "关注整个使用周期" },
+    heading: { en: "Choose with confidence", zh: "更有把握地选择" },
     body: {
-      en: "Residential choices need to balance installation, maintenance, comfort and appearance. We help builders, designers and homeowners compare those trade-offs before the work begins.",
-      zh: "住宅选材需要平衡施工、维护、舒适度与外观。我们帮助建造商、设计师和业主在开工前看清这些取舍。",
+      en: "Call us with the application and finish you need. We’ll help compare the practical trade-offs.",
+      zh: "来电说明应用与饰面要求，我们帮您比较实际取舍。",
     },
   },
   commercial: {
     eyebrow: { en: "Commercial", zh: "商业方案" },
-    title: { en: "Performance that fits the programme.", zh: "性能适配项目进度。" },
+    title: { en: "Performance that fits the job.", zh: "性能适合项目。" },
     intro: {
-      en: "Focused material support for offices, retail, hospitality and public-facing environments.",
-      zh: "面向办公、零售、酒店餐饮与公共空间的专注材料支持。",
+      en: "Product support for offices, retail, hospitality and public spaces.",
+      zh: "为办公、零售、酒店餐饮与公共空间提供产品支持。",
     },
-    heading: { en: "Fewer specification gaps", zh: "减少规格信息缺口" },
+    heading: { en: "Get to a shortlist faster", zh: "更快形成候选清单" },
     body: {
-      en: "Commercial teams need clear performance information and predictable installation. We help align the material direction with exposure, traffic, sequencing and finish expectations.",
-      zh: "商业项目团队需要清晰的性能信息与可预期的施工过程。我们协助将材料方向与暴露环境、人流强度、工序和效果预期对齐。",
+      en: "Share the exposure, traffic and finish requirements. We’ll help focus the product choice.",
+      zh: "提供暴露环境、人流与饰面要求，我们帮您聚焦产品选择。",
     },
   },
 } as const;
@@ -65,16 +65,16 @@ export const ContentPage = ({ kind }: ContentPageProps) => {
       <section className={styles.story}>
         <h2>{t(page.heading, locale)}</h2>
         <p>{t(page.body, locale)}</p>
-        {kind !== "about" && (
-          <div className={styles.actions}>
-            <Link className={styles.primary} to={withLocale("/contact", locale)}>
-              {t(copy.common.enquire, locale)}
-            </Link>
+        <div className={styles.actions}>
+          <a className={styles.primary} href={contact.phoneHref}>
+            {t(copy.common.call, locale)}
+          </a>
+          {kind !== "about" && (
             <Link className={styles.textLink} to={withLocale("/products", locale)}>
               {t(copy.common.explore, locale)}
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </section>
       {kind === "about" && (
         <figure className={styles.editorialImage}>

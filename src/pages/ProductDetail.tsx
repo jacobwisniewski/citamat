@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { brands, copy, products, t } from "../data/site";
+import { brands, contact, copy, products, t } from "../data/site";
 import { useLocale, withLocale } from "../hooks/useLocale";
 import styles from "./Page.module.scss";
 
@@ -46,8 +46,11 @@ export const ProductDetail = () => {
           </div>
         </div>
         <div className={styles.actions}>
+          <a className={styles.primary} href={contact.phoneHref}>
+            {t(copy.common.call, locale)}
+          </a>
           <Link
-            className={styles.primary}
+            className={styles.textLink}
             to={`${withLocale("/contact", locale)}?subject=${encodeURIComponent(product.name)}`}
           >
             {t(copy.common.enquire, locale)}

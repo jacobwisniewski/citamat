@@ -1,4 +1,4 @@
-import { brands, products, t, type Locale } from "../data/site";
+import { brands, contact, products, t, type Locale } from "../data/site";
 
 export const siteUrl = "https://citamat.jacobwisniewski.dev";
 export const socialImagePath = "/brand/citamat-og.jpg";
@@ -44,11 +44,11 @@ const localizedPages: LocalizedPage[] = [
     en: {
       title: "CITAMAT Australia | Building Material Systems",
       description:
-        "Explore waterproofing, composite timber and decorative finish systems for Australian residential and commercial projects.",
+        "Call CITAMAT for practical help choosing waterproofing, composite timber and decorative finishes for Australian projects.",
     },
     zh: {
       title: "CITAMAT 澳大利亚 | 建筑材料系统",
-      description: "探索适用于澳大利亚住宅与商业项目的防水、塑木和装饰饰面系统。",
+      description: "致电 CITAMAT，获取澳大利亚项目防水、塑木与装饰饰面的实用选材建议。",
     },
   },
   {
@@ -109,11 +109,12 @@ const localizedPages: LocalizedPage[] = [
     en: {
       title: "Contact CITAMAT Australia",
       description:
-        "Contact CITAMAT in Burwood, Victoria for building product information and project recommendations.",
+        "Call CITAMAT in Burwood on (03) 9888 0000 for building product information and project guidance.",
     },
     zh: {
       title: "联系 CITAMAT 澳大利亚",
-      description: "联系位于维多利亚州 Burwood 的 CITAMAT，获取产品信息与项目选材建议。",
+      description:
+        "致电 (03) 9888 0000 联系位于维多利亚州 Burwood 的 CITAMAT，获取产品与选材建议。",
     },
   },
 ];
@@ -218,7 +219,15 @@ const organization = {
     "@type": "ImageObject",
     url: `${siteUrl}/brand/citamat-mark.svg`,
   },
-  email: "info@citamat.com",
+  email: contact.email,
+  telephone: contact.phoneInternational,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: contact.phoneInternational,
+    contactType: "sales",
+    areaServed: "AU",
+    availableLanguage: ["English", "Chinese"],
+  },
   address: {
     "@type": "PostalAddress",
     streetAddress: "7 Alexander Drive",
