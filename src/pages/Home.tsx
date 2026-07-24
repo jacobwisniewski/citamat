@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { brands, categories, contact, copy, products, t } from "../data/site";
+import { brands, contact, copy, products, t } from "../data/site";
 import { useLocale, withLocale } from "../hooks/useLocale";
 import styles from "./Page.module.scss";
 
@@ -33,47 +33,6 @@ export const Home = () => {
           <div className={styles.heroFrame}>
             <img src="/images/hero.avif" alt="" />
           </div>
-        </div>
-      </section>
-
-      <div className={styles.proofBar}>
-        <div>
-          <strong>{locale === "zh" ? "直接沟通" : "Talk to Melbourne"}</strong>
-          <span>{locale === "zh" ? "本地团队项目建议" : "Direct project guidance"}</span>
-        </div>
-        <div>
-          <strong>{locale === "zh" ? "更快筛选" : "A faster shortlist"}</strong>
-          <span>{locale === "zh" ? "按应用与基面匹配" : "Matched to use and substrate"}</span>
-        </div>
-        <div>
-          <strong>{locale === "zh" ? "三类产品" : "Three product areas"}</strong>
-          <span>
-            {locale === "zh" ? "防水、塑木与装饰饰面" : "Waterproofing, composite and finishes"}
-          </span>
-        </div>
-      </div>
-
-      <section className={styles.section}>
-        <div className={styles.sectionIntro}>
-          <h2>{locale === "zh" ? "告诉我们您要建什么。" : "Tell us what you’re building."}</h2>
-          <p>
-            {locale === "zh"
-              ? "我们根据应用、基面与饰面要求，提供实用的产品方向。"
-              : "We’ll match the application, substrate and finish to a practical product shortlist."}
-          </p>
-        </div>
-        <div className={styles.categoryGrid}>
-          {categories.map((category) => (
-            <Link
-              className={styles.categoryCard}
-              key={category.slug}
-              to={withLocale(`/products?category=${category.category}`, locale)}
-            >
-              <span>{category.icon}</span>
-              <h3>{t(category.title, locale)}</h3>
-              <p>{t(category.text, locale)}</p>
-            </Link>
-          ))}
         </div>
       </section>
 
