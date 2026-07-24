@@ -307,7 +307,7 @@ export const buildStructuredData = (entry: SeoEntry): Record<string, unknown> =>
     );
   }
 
-  if (entry.kind === "about") graph.push(organization);
+  if (entry.kind === "about" || entry.kind === "contact") graph.push(organization);
 
   if (entry.kind === "product" && entry.entitySlug) {
     const product = products.find(({ slug }) => slug === entry.entitySlug);

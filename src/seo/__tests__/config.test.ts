@@ -41,4 +41,19 @@ describe("SEO configuration", () => {
       ]),
     });
   });
+
+  it("GIVEN the contact route WHEN building schema SHOULD include warehouse hours", () => {
+    const schema = buildStructuredData(getSeoEntry("/contact"));
+
+    expect(schema).toMatchObject({
+      "@graph": expect.arrayContaining([
+        expect.objectContaining({
+          "@type": ["Organization", "LocalBusiness"],
+          openingHoursSpecification: expect.arrayContaining([
+            expect.objectContaining({ opens: "08:30", closes: "17:30" }),
+          ]),
+        }),
+      ]),
+    });
+  });
 });
