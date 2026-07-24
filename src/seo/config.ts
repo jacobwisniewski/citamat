@@ -211,7 +211,7 @@ export const getSeoEntry = (pathname: string): SeoEntry => {
 const absoluteUrl = (path: string): string => `${siteUrl}${path === "/" ? "" : path}`;
 
 const organization = {
-  "@type": "Organization",
+  "@type": ["Organization", "LocalBusiness"],
   "@id": `${siteUrl}/#organization`,
   name: "CITAMAT Australia",
   url: siteUrl,
@@ -236,6 +236,25 @@ const organization = {
     postalCode: "3125",
     addressCountry: "AU",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -37.8526,
+    longitude: 145.1182,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:30",
+      closes: "17:30",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "09:00",
+      closes: "13:00",
+    },
+  ],
 };
 
 const breadcrumbSchema = (entry: SeoEntry) => ({

@@ -73,12 +73,8 @@ export const Layout = ({ children }: LayoutProps) => {
           <span>{locale === "zh" ? "联系" : "Contact"}</span>
           <a href={contact.phoneHref}>{contact.phoneInternational}</a>
           <a href={`mailto:${contact.email}`}>{contact.email}</a>
-          <a
-            href="https://www.google.com/maps/search/7+Alexander+Drive,+Burwood+3125,+Victoria"
-            target="_blank"
-            rel="noreferrer"
-          >
-            7 Alexander Drive, Burwood VIC 3125
+          <a href={contact.mapHref} target="_blank" rel="noreferrer">
+            {contact.address}
           </a>
         </div>
         <div>

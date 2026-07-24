@@ -32,7 +32,6 @@ export const Catalog = () => {
   return (
     <div className={styles.page}>
       <header className={styles.compactHero} data-theme="dark">
-        <span className={styles.eyebrow}>{t(copy.nav.products, locale)}</span>
         <h1>{locale === "zh" ? "按应用选择产品。" : "Choose products by application."}</h1>
         <p>
           {locale === "zh"

@@ -9,7 +9,6 @@ type ContentPageProps = {
 
 const content = {
   about: {
-    eyebrow: { en: "About CITAMAT", zh: "关于 CITAMAT" },
     title: {
       en: "Practical product help. Local support.",
       zh: "实用产品建议，本地团队支持。",
@@ -25,7 +24,6 @@ const content = {
     },
   },
   residential: {
-    eyebrow: { en: "Residential", zh: "住宅方案" },
     title: { en: "Products for homes that work hard.", zh: "适合日常使用的住宅产品。" },
     intro: {
       en: "Options for wet areas, balconies, outdoor spaces and interiors.",
@@ -38,7 +36,6 @@ const content = {
     },
   },
   commercial: {
-    eyebrow: { en: "Commercial", zh: "商业方案" },
     title: { en: "Performance that fits the job.", zh: "性能适合项目。" },
     intro: {
       en: "Product support for offices, retail, hospitality and public spaces.",
@@ -58,7 +55,6 @@ export const ContentPage = ({ kind }: ContentPageProps) => {
   return (
     <div className={styles.page}>
       <header className={styles.compactHero} data-theme="dark">
-        <span className={styles.eyebrow}>{t(page.eyebrow, locale)}</span>
         <h1>{t(page.title, locale)}</h1>
         <p>{t(page.intro, locale)}</p>
       </header>

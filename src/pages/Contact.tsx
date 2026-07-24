@@ -45,7 +45,6 @@ export const Contact = () => {
   return (
     <div className={styles.page}>
       <header className={styles.compactHero} data-theme="dark">
-        <span className={styles.eyebrow}>{locale === "zh" ? "联系我们" : "Contact CITAMAT"}</span>
         <h1>{locale === "zh" ? "来电，我们帮您选择。" : "Call us. We’ll help you choose."}</h1>
         <p>
           {locale === "zh"
@@ -60,23 +59,47 @@ export const Contact = () => {
       </header>
       <section className={styles.contactGrid}>
         <aside className={styles.contactAside}>
-          <h2>{locale === "zh" ? "更喜欢邮件？" : "Prefer email?"}</h2>
-          <p>
-            {locale === "zh"
-              ? "填写项目要点，我们会在您的邮件应用中准备好内容。"
-              : "Add the key details and we’ll prepare the message in your email app."}
-          </p>
-          <a href={contact.phoneHref}>{contact.phoneInternational}</a>
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
-          <a
-            href="https://www.google.com/maps/search/7+Alexander+Drive,+Burwood+3125,+Victoria"
-            target="_blank"
-            rel="noreferrer"
-          >
-            7 Alexander Drive, Burwood VIC 3125
-          </a>
+          <h2>{locale === "zh" ? "仓库与联系方式" : "Warehouse & contact"}</h2>
+          <div className={styles.contactBlock}>
+            <h3>{locale === "zh" ? "地址" : "Address"}</h3>
+            <address>{contact.address}</address>
+            <a href={contact.mapHref} target="_blank" rel="noreferrer">
+              {locale === "zh" ? "查看路线" : "Get directions"}
+            </a>
+          </div>
+          <div className={styles.contactBlock}>
+            <h3>{locale === "zh" ? "仓库开放时间" : "Warehouse hours"}</h3>
+            <dl className={styles.hours}>
+              <div>
+                <dt>{locale === "zh" ? "周一至周五" : "Monday–Friday"}</dt>
+                <dd>{contact.weekdayHours}</dd>
+              </div>
+              <div>
+                <dt>{locale === "zh" ? "周六" : "Saturday"}</dt>
+                <dd>{contact.saturdayHours}</dd>
+              </div>
+            </dl>
+            <p>
+              {locale === "zh"
+                ? "取货或到访前建议先来电确认。"
+                : "Please call ahead before visiting or collecting."}
+            </p>
+          </div>
+          <div className={styles.contactBlock}>
+            <h3>{locale === "zh" ? "直接联系" : "Direct contact"}</h3>
+            <a href={contact.phoneHref}>{contact.phoneInternational}</a>
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          </div>
         </aside>
         <form className={styles.form} onSubmit={submit}>
+          <div className={styles.formIntro}>
+            <h2>{locale === "zh" ? "发送项目详情" : "Send project details"}</h2>
+            <p>
+              {locale === "zh"
+                ? "更喜欢邮件？填写要点，我们会在您的邮件应用中准备内容。"
+                : "Prefer email? Add the key details and we’ll prepare the message in your email app."}
+            </p>
+          </div>
           <label>
             {locale === "zh" ? "姓名 *" : "Name *"}
             <input

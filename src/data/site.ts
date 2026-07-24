@@ -25,10 +25,14 @@ export type Brand = {
 };
 
 export const contact = {
+  address: "7 Alexander Drive, Burwood VIC 3125",
   email: "info@citamat.com",
+  mapHref: "https://www.google.com/maps/search/7+Alexander+Drive,+Burwood+3125,+Victoria",
   phoneDisplay: "(03) 9888 0000",
   phoneHref: "tel:+61398880000",
   phoneInternational: "+61 3 9888 0000",
+  saturdayHours: "9:00 am–1:00 pm",
+  weekdayHours: "8:30 am–5:30 pm",
 } as const;
 
 export const copy = {

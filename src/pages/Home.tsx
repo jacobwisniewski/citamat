@@ -10,9 +10,6 @@ export const Home = () => {
     <div className={styles.page}>
       <section className={styles.hero} data-theme="dark">
         <div className={styles.heroCopy}>
-          <span className={styles.eyebrow}>
-            {locale === "zh" ? "澳大利亚建筑材料" : "Materials for Australian builds"}
-          </span>
           <h1>
             {locale === "zh"
               ? "选对系统，安心施工。"

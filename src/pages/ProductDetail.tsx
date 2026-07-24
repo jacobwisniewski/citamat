@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { brands, contact, copy, products, t } from "../data/site";
+import { contact, copy, products, t } from "../data/site";
 import { useLocale, withLocale } from "../hooks/useLocale";
 import styles from "./Page.module.scss";
 
@@ -12,8 +12,6 @@ export const ProductDetail = () => {
     return <NotFound />;
   }
 
-  const brand = brands.find((item) => item.slug === product.brand);
-
   return (
     <article className={styles.detail}>
       <div
@@ -24,7 +22,6 @@ export const ProductDetail = () => {
         <img src={product.image} alt={product.name} />
       </div>
       <div className={styles.detailBody}>
-        <span className={styles.eyebrow}>{brand?.name}</span>
         <h1>{product.name}</h1>
         <p>{t(product.summary, locale)}</p>
         <div className={styles.specs}>
