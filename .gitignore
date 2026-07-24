@@ -3,6 +3,7 @@ dist
 .wrangler
 playwright-report
 test-results
+work
 *.log
 *.tsbuildinfo
 .DS_Store

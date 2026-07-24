@@ -43,7 +43,7 @@ export const Contact = () => {
 
   return (
     <div className={styles.page}>
-      <header className={styles.compactHero}>
+      <header className={styles.compactHero} data-theme="dark">
         <span className={styles.eyebrow}>{locale === "zh" ? "项目咨询" : "Project enquiry"}</span>
         <h1>{locale === "zh" ? "从项目条件开始。" : "Start with the project conditions."}</h1>
         <p>

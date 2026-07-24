@@ -1,18 +1,9 @@
 :root {
-  color: #16352f;
-  background: #f7f5ef;
-  font-family: "DM Sans", "Noto Sans SC", sans-serif;
+  color: var(--color-text);
+  background: var(--color-background);
+  font-family: var(--font-sans);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --cream: #f7f5ef;
-  --paper: #fffdf8;
-  --ink: #0b3029;
-  --forest: #194f42;
-  --sage: #a9bcae;
-  --clay: #bc6b43;
-  --sand: #e8dfd0;
-  --line: rgb(11 48 41 / 16%);
-  --shadow: 0 24px 70px rgb(20 49 42 / 12%);
 }
 
 * {
@@ -26,6 +17,7 @@ html {
 body {
   min-width: 320px;
   margin: 0;
+  background: var(--color-background);
 }
 
 button,
@@ -45,11 +37,11 @@ img {
 }
 
 ::selection {
-  background: var(--clay);
-  color: white;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
 }
 
 :focus-visible {
-  outline: 3px solid rgb(188 107 67 / 45%);
+  outline: 3px solid var(--color-focus);
   outline-offset: 3px;
 }

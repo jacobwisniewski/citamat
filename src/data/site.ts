@@ -158,25 +158,25 @@ export const products: Product[] = [
     image: "/images/composite.avif",
   },
   {
-    slug: "rainbark-mineral-finish",
-    name: "rainbARK® Mineral Finish",
+    slug: "rainbark-premium-colour",
+    name: "rainbARK® PremiumColour",
     brand: "rainbark",
     category: "decorative",
     summary: {
-      en: "A tactile mineral-style wall finish for calm, characterful interiors.",
-      zh: "为安静且富有个性的室内空间打造触感矿物墙面。",
+      en: "Premium interior wall paint presented in a practical 15-litre format.",
+      zh: "采用实用 15 升包装的优质室内墙面涂料。",
     },
     features: [
-      { en: "Layered natural texture", zh: "自然层次肌理" },
-      { en: "Curated neutral palette", zh: "精选中性色系" },
-      { en: "Suitable for feature surfaces", zh: "适用于特色墙面" },
+      { en: "Interior wall finish", zh: "室内墙面饰面" },
+      { en: "15-litre format", zh: "15 升包装" },
+      { en: "Clear branded presentation", zh: "清晰品牌识别" },
     ],
     applications: [
       { en: "Residential interiors", zh: "住宅室内" },
       { en: "Hospitality", zh: "酒店餐饮" },
       { en: "Retail", zh: "零售空间" },
     ],
-    image: "/images/decorative.avif",
+    image: "/images/rainbark-premium-colour.avif",
   },
 ];
 

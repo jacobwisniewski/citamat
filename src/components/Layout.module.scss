@@ -1,6 +1,6 @@
 .shell {
   min-height: 100vh;
-  background: var(--cream);
+  background: var(--color-background);
 }
 
 .header {
@@ -10,16 +10,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 84px;
-  padding: 0 clamp(24px, 5vw, 76px);
-  border-bottom: 1px solid rgb(11 48 41 / 12%);
-  background: rgb(247 245 239 / 92%);
+  height: var(--header-height);
+  padding: 0 var(--page-gutter);
+  border-bottom: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-background) 92%, transparent);
   backdrop-filter: blur(18px);
 }
 
 .logo,
 .footerLogo {
-  color: var(--ink);
+  color: var(--color-text);
   font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -29,7 +29,7 @@
   span {
     display: block;
     margin-top: 6px;
-    color: var(--clay);
+    color: var(--color-accent);
     font-size: 0.52rem;
     letter-spacing: 0.24em;
   }
@@ -42,7 +42,7 @@
   gap: clamp(16px, 2vw, 30px);
 
   a {
-    color: var(--ink);
+    color: var(--color-text);
     font-size: 0.84rem;
     font-weight: 600;
     text-decoration: none;
@@ -59,7 +59,7 @@
     bottom: 22px;
     left: 0;
     height: 1px;
-    background: var(--clay);
+    background: var(--color-accent);
     content: "";
     transform: scaleX(0);
     transform-origin: right;
@@ -79,10 +79,11 @@
 }
 
 .navCta {
-  padding: 12px 18px;
-  border-radius: 999px;
-  background: var(--ink);
-  color: white !important;
+  min-height: var(--control-height);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--color-action-background);
+  color: var(--color-action-text) !important;
 }
 
 .menuButton {
@@ -92,16 +93,16 @@
 .footer {
   display: grid;
   grid-template-columns: 1.4fr 1fr 0.6fr;
-  gap: 48px;
-  padding: 72px clamp(24px, 6vw, 88px) 32px;
-  background: var(--ink);
-  color: rgb(255 255 255 / 72%);
+  gap: var(--space-12);
+  padding: 72px var(--page-gutter) var(--space-8);
+  background: var(--color-background);
+  color: var(--color-text-muted);
 
   div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: var(--space-3);
   }
 
   p {
@@ -111,7 +112,7 @@
 
   span {
     margin-bottom: 8px;
-    color: white;
+    color: var(--color-text);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.14em;
@@ -123,19 +124,19 @@
     text-decoration: none;
 
     &:hover {
-      color: white;
+      color: var(--color-text);
     }
   }
 
   small {
     grid-column: 1 / -1;
     padding-top: 34px;
-    border-top: 1px solid rgb(255 255 255 / 14%);
+    border-top: 1px solid var(--color-border);
   }
 }
 
 .footerLogo {
-  color: white;
+  color: var(--color-text);
 }
 
 @media (max-width: 1040px) {
@@ -147,7 +148,7 @@
     gap: 7px;
     border: 0;
     border-radius: 50%;
-    background: var(--ink);
+    background: var(--color-action-background);
 
     span {
       width: 17px;
@@ -159,15 +160,15 @@
   .nav,
   .navOpen {
     position: fixed;
-    top: 84px;
+    top: var(--header-height);
     right: 0;
     left: 0;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding: 24px;
+    padding: var(--space-6);
     border-bottom: 1px solid var(--line);
-    background: var(--cream);
+    background: var(--color-background);
     transition:
       opacity 180ms ease,
       transform 180ms ease;
@@ -206,12 +207,12 @@
 
 @media (max-width: 700px) {
   .header {
-    height: 72px;
+    height: var(--header-height-mobile);
   }
 
   .nav,
   .navOpen {
-    top: 72px;
+    top: var(--header-height-mobile);
   }
 
   .footer {

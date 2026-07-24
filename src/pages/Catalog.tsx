@@ -31,7 +31,7 @@ export const Catalog = () => {
 
   return (
     <div className={styles.page}>
-      <header className={styles.compactHero}>
+      <header className={styles.compactHero} data-theme="dark">
         <span className={styles.eyebrow}>{t(copy.nav.products, locale)}</span>
         <h1>
           {locale === "zh" ? "按应用找到合适系统。" : "Find the right system by application."}
@@ -67,7 +67,7 @@ export const Catalog = () => {
             >
               <div
                 className={`${styles.productImage} ${
-                  product.category === "waterproofing" ? styles.packagingImage : ""
+                  product.category !== "composite" ? styles.packagingImage : ""
                 }`}
               >
                 <img src={product.image} alt={product.name} loading="lazy" />

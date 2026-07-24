@@ -87,7 +87,7 @@ export const ContentPage = ({ kind }: ContentPageProps) => {
   const page = content[kind];
   return (
     <div className={styles.page}>
-      <header className={styles.compactHero}>
+      <header className={styles.compactHero} data-theme="dark">
         <span className={styles.eyebrow}>{t(page.eyebrow, locale)}</span>
         <h1>{t(page.title, locale)}</h1>
         <p>{t(page.intro, locale)}</p>
@@ -106,6 +106,15 @@ export const ContentPage = ({ kind }: ContentPageProps) => {
           </div>
         )}
       </section>
+      {kind === "about" && (
+        <figure className={styles.editorialImage}>
+          <img
+            src="/images/scraped/photo_1552664730_d307ca884978_91e34f5057.avif"
+            alt={locale === "zh" ? "CITAMAT 团队协作" : "CITAMAT team collaboration"}
+            loading="lazy"
+          />
+        </figure>
+      )}
       {kind === "projects" && (
         <section className={styles.section}>
           <div className={styles.projectGrid}>
@@ -138,7 +147,7 @@ export const CaseStudy = () => {
   }
   return (
     <div className={styles.page}>
-      <header className={styles.compactHero}>
+      <header className={styles.compactHero} data-theme="dark">
         <span className={styles.eyebrow}>{t(project.type, locale)}</span>
         <h1>{t(project.name, locale)}</h1>
         <p>

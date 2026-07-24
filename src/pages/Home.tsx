@@ -8,7 +8,7 @@ export const Home = () => {
 
   return (
     <div className={styles.page}>
-      <section className={styles.hero}>
+      <section className={styles.hero} data-theme="dark">
         <div className={styles.heroCopy}>
           <span className={styles.eyebrow}>
             {locale === "zh" ? "澳大利亚建筑材料合作伙伴" : "Australian building materials partner"}
@@ -88,7 +88,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <section className={styles.darkSection}>
+      <section className={styles.darkSection} data-theme="dark">
         <div className={styles.sectionIntro}>
           <h2>
             {locale === "zh"
@@ -134,7 +134,7 @@ export const Home = () => {
             >
               <div
                 className={`${styles.productImage} ${
-                  product.category === "waterproofing" ? styles.packagingImage : ""
+                  product.category !== "composite" ? styles.packagingImage : ""
                 }`}
               >
                 <img src={product.image} alt={product.name} loading="lazy" />

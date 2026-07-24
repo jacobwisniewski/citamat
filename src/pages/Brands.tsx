@@ -8,7 +8,7 @@ export const Brands = () => {
   const locale = useLocale();
   return (
     <div className={styles.page}>
-      <header className={styles.compactHero}>
+      <header className={styles.compactHero} data-theme="dark">
         <span className={styles.eyebrow}>{locale === "zh" ? "合作品牌" : "Brand partners"}</span>
         <h1>{locale === "zh" ? "更专注的产品组合。" : "A more focused product portfolio."}</h1>
         <p>
@@ -17,7 +17,7 @@ export const Brands = () => {
             : "Our portfolio is built around three complementary disciplines so project support can go deeper."}
         </p>
       </header>
-      <section className={styles.darkSection}>
+      <section className={styles.darkSection} data-theme="dark">
         <div className={styles.brandGrid}>
           {brands.map((brand) => (
             <Link
@@ -52,7 +52,7 @@ export const BrandDetail = ({ fixedSlug }: BrandDetailProps) => {
 
   return (
     <div className={styles.page}>
-      <header className={styles.compactHero}>
+      <header className={styles.compactHero} data-theme="dark">
         <span className={styles.eyebrow}>{t(brand.category, locale)}</span>
         <h1>{brand.name}</h1>
         <p>{t(brand.description, locale)}</p>
@@ -75,7 +75,7 @@ export const BrandDetail = ({ fixedSlug }: BrandDetailProps) => {
             >
               <div
                 className={`${styles.productImage} ${
-                  product.category === "waterproofing" ? styles.packagingImage : ""
+                  product.category !== "composite" ? styles.packagingImage : ""
                 }`}
               >
                 <img src={product.image} alt={product.name} loading="lazy" />

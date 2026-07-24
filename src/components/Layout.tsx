@@ -65,7 +65,7 @@ export const Layout = ({ children }: LayoutProps) => {
         </nav>
       </header>
       <main>{children}</main>
-      <footer className={styles.footer}>
+      <footer className={styles.footer} data-theme="dark">
         <div>
           <Link className={styles.footerLogo} to={withLocale("/", locale)}>
             CITAMAT

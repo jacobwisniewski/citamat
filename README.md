@@ -57,3 +57,9 @@ and sends it directly to `info@citamat.com`.
 
 See [docs/ui-skills-research.md](docs/ui-skills-research.md) for the current Codex UI-skill
 recommendations used in the design review.
+
+See [docs/design-language.md](docs/design-language.md) for the theme, token and component usage
+rules.
+
+See [docs/image-inventory.md](docs/image-inventory.md) for the complete scraped source-image
+library.
