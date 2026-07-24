@@ -1,13 +1,12 @@
-import { useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
-import { useLocale } from "./hooks/useLocale";
 import { BrandDetail, Brands } from "./pages/Brands";
 import { Catalog } from "./pages/Catalog";
 import { CaseStudy, ContentPage } from "./pages/ContentPages";
 import { Contact } from "./pages/Contact";
 import { Home } from "./pages/Home";
 import { NotFound, ProductDetail } from "./pages/ProductDetail";
+import { SeoManager } from "./seo/SeoManager";
 
 const RouteSet = ({ prefix = "" }: { prefix?: string }) => (
   <>
@@ -35,21 +34,9 @@ const RouteSet = ({ prefix = "" }: { prefix?: string }) => (
   </>
 );
 
-const PageEffects = () => {
-  const locale = useLocale();
-  const location = useLocation();
-  useEffect(() => {
-    document.documentElement.lang = locale === "zh" ? "zh-CN" : "en";
-    document.title =
-      locale === "zh" ? "CITAMAT 澳大利亚建筑材料" : "CITAMAT Australia | Building Materials";
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, [locale, location.pathname]);
-  return null;
-};
-
 export const App = () => (
   <Layout>
-    <PageEffects />
+    <SeoManager />
     <Routes>
       {RouteSet({})}
       {RouteSet({ prefix: "/zh" })}

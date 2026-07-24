@@ -1,0 +1,17 @@
+{
+  "name": "CITAMAT Australia",
+  "short_name": "CITAMAT",
+  "description": "Building material systems for Australian projects.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#0b2a5b",
+  "icons": [
+    {
+      "src": "/brand/citamat-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
