@@ -132,8 +132,12 @@ export const Home = () => {
               key={product.slug}
               to={withLocale(`/products/${product.slug}`, locale)}
             >
-              <div className={styles.productImage}>
-                <img src={product.image} alt={product.name} />
+              <div
+                className={`${styles.productImage} ${
+                  product.category === "waterproofing" ? styles.packagingImage : ""
+                }`}
+              >
+                <img src={product.image} alt={product.name} loading="lazy" />
               </div>
               <div className={styles.cardBody}>
                 <small>{brands.find((brand) => brand.slug === product.brand)?.name}</small>

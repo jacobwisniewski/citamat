@@ -16,7 +16,11 @@ export const ProductDetail = () => {
 
   return (
     <article className={styles.detail}>
-      <div className={styles.detailVisual}>
+      <div
+        className={`${styles.detailVisual} ${
+          product.category === "waterproofing" ? styles.packagingDetail : ""
+        }`}
+      >
         <img src={product.image} alt={product.name} />
       </div>
       <div className={styles.detailBody}>
